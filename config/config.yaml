@@ -1,0 +1,3 @@
+inbound_port: 5044
+outbound_host: otel-collector
+outbound_port: 12201
