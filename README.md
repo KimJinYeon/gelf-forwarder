@@ -1,6 +1,6 @@
 # GELF OTLP Forwarder
 
-<img width="801" alt="스크린샷 2025-01-22 오후 3 52 37" src="https://github.com/user-attachments/assets/9d532bf2-cc15-49c6-91ea-7a100596fe86" />
+<img width="800" alt="스크린샷 2025-01-22 오후 3 52 37" src="https://github.com/user-attachments/assets/f267e7e5-691c-420e-99c5-b83c6bac6d2a" />
 
 ## In Short
 
