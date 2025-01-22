@@ -13,18 +13,18 @@ RUN go mod download
 COPY . .
 
 # Build the Go binary
-RUN go build -o gelf-forwarder .
+RUN CGO_ENABLED=0 GOOS=linux go build -o gelf-otlp-forwarder .
 
 # 2. Runtime 단계: 경량 이미지 사용
-FROM golang:1.23
+FROM scratch
 
 WORKDIR /app
 
-# Copy Go binary from build stage
-COPY --from=builder /app/gelf-forwarder .
+# Copy the static Go binary
+COPY --from=builder /app/gelf-otlp-forwarder .
 
 # Default port for GELF listener
 EXPOSE 5044
 
 # Run the application
-ENTRYPOINT ["./gelf-forwarder"]
+ENTRYPOINT ["/app/gelf-forwarder"]

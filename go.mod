@@ -1,4 +1,4 @@
-module gelf-forwarder
+module gelf-otlp-forwarder
 
 go 1.23.1
 
