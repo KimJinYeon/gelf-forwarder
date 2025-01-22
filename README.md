@@ -1,5 +1,7 @@
 # GELF OTLP Forwarder
 
+<img width="801" alt="스크린샷 2025-01-22 오후 3 52 37" src="https://github.com/user-attachments/assets/9d532bf2-cc15-49c6-91ea-7a100596fe86" />
+
 ## In Short
 
 If you are looking for GELF Receiver for otel collector and can't find it, use this gelf-otlp-forwarder.
