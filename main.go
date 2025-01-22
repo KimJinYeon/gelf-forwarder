@@ -55,8 +55,14 @@ func main() {
 			continue
 		}
 
+		otlpMessage, err := internal.TransformToOTLP(decompressed)
+		if err != nil {
+			log.Printf("Failed to transform GELF to OTLP: %v", err)
+			continue
+		}
+
 		// Forward message
-		if err := internal.ForwardMessage(decompressed, destConn); err != nil {
+		if err := internal.ForwardMessage(otlpMessage, destConn); err != nil {
 			log.Printf("Failed to forward message: %v", err)
 		}
 
