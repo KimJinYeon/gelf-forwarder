@@ -1,5 +1,9 @@
 # GELF OTLP Forwarder
 
+# TL;DR
+
+If you are looking for GELF Receiver for otel collector and can't find it, use this gelf-otlp-forwarder.
+
 ## Overview
 GELF OTLP Forwarder is a lightweight intermediary server designed to bridge the gap between GELF (Graylog Extended Log Format) and OTLP (OpenTelemetry Protocol). Since the OpenTelemetry Collector does not provide a built-in GELF receiver, GELF Forwarder simplifies the process by receiving logs in GELF format over UDP, optionally decompressing them (GZIP), and forwarding the transformed data in OTLP format over UDP.
 
