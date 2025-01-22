@@ -5,7 +5,7 @@ import (
 	"net"
 	"strconv"
 
-	"gelf-forwarder/internal"
+	"gelf-otlp-forwarder/internal"
 )
 
 func main() {
