@@ -1,6 +1,6 @@
 # GELF OTLP Forwarder
 
-## TL;DR
+## In Short
 
 If you are looking for GELF Receiver for otel collector and can't find it, use this gelf-otlp-forwarder.
 
