@@ -1,7 +1,7 @@
-# GELF Forwarder
+# GELF OTLP Forwarder
 
 ## Overview
-GELF Forwarder is a lightweight intermediary server designed to bridge the gap between GELF (Graylog Extended Log Format) and OTLP (OpenTelemetry Protocol). Since the OpenTelemetry Collector does not provide a built-in GELF receiver, GELF Forwarder simplifies the process by receiving logs in GELF format over UDP, optionally decompressing them (GZIP), and forwarding the transformed data in OTLP format over UDP.
+GELF OTLP Forwarder is a lightweight intermediary server designed to bridge the gap between GELF (Graylog Extended Log Format) and OTLP (OpenTelemetry Protocol). Since the OpenTelemetry Collector does not provide a built-in GELF receiver, GELF Forwarder simplifies the process by receiving logs in GELF format over UDP, optionally decompressing them (GZIP), and forwarding the transformed data in OTLP format over UDP.
 
 ## Features
 - **GELF to OTLP Transformation**: Automatically converts incoming GELF messages to OTLP format.
@@ -21,12 +21,12 @@ Download the pre-built binary for your platform from the [Releases](https://gith
 Ensure you have Go installed (version 1.20 or later), then run:
 
 ```bash
-git clone https://github.com/your-repo/gelf-forwarder.git
-cd gelf-forwarder
-go build -o gelf-forwarder .
+git clone https://github.com/your-repo/gelf-otlp-forwarder.git
+cd gelf-otlp-forwarder
+go build -o gelf-otlp-forwarder .
 ```
 
-This will create an executable named `gelf-forwarder` in the project directory.
+This will create an executable named `gelf-otlp-forwarder` in the project directory.
 
 ## Usage
 
@@ -45,20 +45,21 @@ Create a `docker-compose.yaml` file with the following content:
 ```yaml
 version: '3.8'
 services:
-  go-gelf-forwarder:
-    image: go-gelf-forwarder:0.0.1
+  gelf-otlp-forwarder:
+    image: gelf-otlp-forwarder:0.0.1
     container_name: go-gelf-forwarder
     environment:
       - CONFIG_PATH=/config/config.yaml
     ports:
       - "5044:5044/udp"
     volumes:
-      - ./gelf-forwarder/config.yaml:/config/config.yaml
+      - ./{your_path}/config.yaml:/config/config.yaml
     depends_on:
       - otel-collector
 ```
 
-Place your `config.yaml` file in the `./gelf-forwarder/` directory.
+If you wish to set config path, set ENV `CONFIG_PATH` as you like.
+This will replace default config path `/config/config.yaml`.
 
 Start the service:
 
@@ -86,5 +87,5 @@ echo -n '{"version":"1.1","host":"example.org","short_message":"Test log"}' | \
 The message will be received, transformed, and forwarded to the specified OTLP endpoint.
 
 ## Contact
-For issues or feature requests, please open an issue on [GitHub](https://github.com/your-repo/gelf-forwarder/issues).
+For issues or feature requests, please open an issue here.
 
