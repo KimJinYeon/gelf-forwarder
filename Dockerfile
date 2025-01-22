@@ -13,10 +13,10 @@ RUN go mod download
 COPY . .
 
 # Build the Go binary
-RUN CGO_ENABLED=0 GOOS=linux go build -o gelf-otlp-forwarder .
+RUN CGO_ENABLED=0 go build -o gelf-otlp-forwarder .
 
 # 2. Runtime 단계: 경량 이미지 사용
-FROM scratch
+FROM gcr.io/distroless/base-debian12
 
 WORKDIR /app
 
