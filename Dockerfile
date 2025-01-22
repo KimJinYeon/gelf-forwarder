@@ -27,4 +27,4 @@ COPY --from=builder /app/gelf-otlp-forwarder .
 EXPOSE 5044
 
 # Run the application
-ENTRYPOINT ["/app/gelf-forwarder"]
+ENTRYPOINT ["/app/gelf-otlp-forwarder"]
